@@ -1,18 +1,12 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import Zoom from 'react-native-zoom';
+import { StyleSheet, View } from 'react-native';
+import { RandomNumberGenerator } from 'react-native-zoom';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    Zoom.multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <RandomNumberGenerator style={{ width: '100%', height: '100%' }} />
     </View>
   );
 }
@@ -23,9 +17,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+  randomNumberGenerator: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#ddd',
   },
 });
